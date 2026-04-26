@@ -1017,28 +1017,195 @@ body.book-open #rainCanvas {
 
 @media (max-width: 640px) {
   .app-shell {
-    width: min(100vw - 1rem, 100%);
+    width: min(100vw - 0.5rem, 100%);
+    padding: 0.5rem 0 2rem;
   }
 
   .hero-copy,
   .book-card,
   .preview-frame {
-    border-radius: 20px;
+    border-radius: 16px;
+    padding: 1rem;
   }
 
   .hero-actions,
   .letter-actions,
   .book-controls {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .hero-actions > *,
   .letter-actions > *,
   .book-controls > * {
     width: 100%;
+    min-height: 44px;
+    font-size: 0.95rem;
   }
 
   .page-indicator {
     order: -1;
+    font-size: 0.9rem;
+  }
+
+  /* Reduzir tamanhos de fonte */
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .stage-header h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .memory-title {
+    font-size: clamp(1.6rem, 7vw, 2.5rem);
+  }
+
+  .entry-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .countdown {
+    font-size: clamp(4rem, 20vw, 8rem);
+  }
+
+  .sequence-word {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+
+  /* Reduzir espaçamentos */
+  .hero-text,
+  .stage-copy,
+  .memory-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .memory-body {
+    padding: 0.8rem;
+  }
+
+  .memory-visual {
+    aspect-ratio: 1;
+    min-height: auto;
+  }
+
+  .stage-photo-frame {
+    width: min(100%, 280px);
+    padding: 0.6rem;
+    border-radius: 16px;
+  }
+
+  .preview-frame {
+    width: min(100%, 280px);
+    padding: 0.6rem;
+  }
+
+  .book-card {
+    padding: 0.8rem;
+  }
+
+  .final-card {
+    padding: 1.5rem;
+  }
+
+  .final-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .happy_birthday {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .cake {
+    width: 160px;
+  }
+
+  .cake-top {
+    width: 100px;
+    height: 40px;
+  }
+
+  .cake-middle {
+    width: 130px;
+    height: 50px;
+  }
+
+  .cake-bottom {
+    width: 160px;
+    height: 55px;
+  }
+
+  .age-number {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .age-label {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .cake-message {
+    font-size: 1.1rem;
+  }
+
+  .gift-icon {
+    font-size: 2.5rem;
+  }
+
+  .balloon {
+    font-size: 2rem;
+  }
+
+  .letter-stage {
+    padding: 2vh 0;
+  }
+
+  .stage-layout {
+    gap: 0.8rem;
+  }
+
+  .stage-copy-column {
+    gap: 0.8rem;
+  }
+
+  .memory-page {
+    gap: 0.8rem;
+  }
+
+  .book-controls {
+    margin-top: 0.6rem;
+  }
+
+  .primary-button,
+  .ghost-button {
+    min-height: 44px;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  .final-button {
+    font-size: 1.1rem;
+    padding: 0.6rem 2rem;
+    min-height: 50px;
+  }
+
+  .music-dock {
+    padding: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .music-player-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  .entry-card {
+    padding: 1.2rem;
+    border-radius: 20px;
+  }
+
+  .entry-copy {
+    font-size: 0.95rem;
+    margin: 0.8rem auto 1rem;
   }
 }
