@@ -75,7 +75,7 @@
 
   musicButton.addEventListener("click", toggleMusic);
   prevButton.addEventListener("click", () => renderMemory(currentMemoryIndex - 1));
-  nextButton.addEventListener("click", () => renderMemory(currentMemoryIndex + 1));
+  // nextButton click handler is set dynamically inside renderMemory
   finalButton.addEventListener("click", showCakeStage);
 
   window.addEventListener("resize", resizeCanvases);
