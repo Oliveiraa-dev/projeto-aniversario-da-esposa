@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Um Presente Para Voce</title>
+  <meta name="description" content="Um presente romantico feito para celebrar uma historia de amor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="skyCanvas" aria-hidden="true"></canvas>
+  <canvas id="rainCanvas" aria-hidden="true"></canvas>
+  <div class="glow glow-left" aria-hidden="true"></div>
+  <div class="glow glow-right" aria-hidden="true"></div>
+
+  <section class="entry-gate" id="entryGate">
+    <div class="entry-card">
+      <p class="eyebrow">Uma surpresa te espera</p>
+      <h1 class="entry-title">Para entrar no site clique no play da musica</h1>
+      <p class="entry-copy">Assim que a musica começar, o presente abre para voce.</p>
+      <button class="primary-button" id="entryPlayButton" type="button">Play da musica</button>
+    </div>
+  </section>
+
+  <main class="app-shell">
+    <section class="hero hidden" id="heroSection">
+      <div class="hero-copy">
+        <p class="eyebrow" id="heroEyebrow">Para o amor da minha vida</p>
+        <h1 id="heroTitle">Um presente para minha esposa</h1>
+        <p class="hero-text" id="heroMessage"></p>
+        <div class="hero-actions">
+          <button class="primary-button" id="startButton" type="button">Abrir surpresa</button>
+          <button class="ghost-button" id="musicButton" type="button" aria-pressed="false">Musica</button>
+        </div>
+        <div class="music-dock hidden" id="musicDock">
+          <p class="music-dock-label" id="musicDockLabel">Trilha romantica</p>
+          <div class="music-player-frame hidden" id="musicPlayerFrame">
+            <iframe
+              id="youtubePlayer"
+              title="Player de musica"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              src=""
+            ></iframe>
+          </div>
+          <a class="music-link" id="musicLink" href="#" target="_blank" rel="noreferrer">Abrir musica no YouTube</a>
+        </div>
+      </div>
+      <div class="hero-preview" aria-hidden="true">
+        <div class="preview-frame">
+          <div class="preview-screen">
+            <img class="preview-photo hidden" id="previewPhoto" alt="Foto especial">
+            <span class="preview-word preview-word-top" id="previewWordTop">AMOR</span>
+            <span class="preview-word preview-word-center" id="previewWordCenter">LOVE</span>
+            <span class="preview-word preview-word-bottom" id="previewWordBottom">SEMPRE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sequence-panel hidden" id="sequencePanel" aria-live="polite">
+      <div class="countdown" id="countdownText">3</div>
+      <div class="sequence-word" id="sequenceWord"></div>
+    </section>
+
+    <section class="letter-stage hidden" id="letterStage">
+      <div class="stage-layout">
+        <div class="stage-copy-column">
+          <div class="stage-header">
+            <p class="eyebrow" id="bookEyebrow">Feito do meu jeitinho, para voce</p>
+            <h2 id="bookTitle">Nosso livro de memorias</h2>
+            <p class="stage-copy" id="bookIntro"></p>
+          </div>
+
+          <div class="letter-actions">
+            <button class="primary-button" id="openBookButton" type="button">Abrir nosso livro</button>
+          </div>
+        </div>
+
+        <div class="stage-visual hidden" id="stageVisual">
+          <div class="stage-photo-frame">
+            <img class="stage-photo" id="stagePhoto" alt="Foto do casal">
+          </div>
+        </div>
+      </div>
+
+      <div class="book-shell hidden" id="bookShell">
+        <div class="book-card">
+          <article class="memory-page" id="memoryPage">
+            <div class="memory-visual" id="memoryVisual">
+              <div class="memory-placeholder" id="memoryPlaceholder">
+                <span id="memoryPlaceholderText">M &amp; V</span>
+              </div>
+              <img id="memoryImage" alt="" hidden>
+            </div>
+            <div class="memory-body">
+              <span class="memory-kicker" id="memoryKicker"></span>
+              <h3 class="memory-title" id="memoryTitle"></h3>
+              <p class="memory-text" id="memoryText"></p>
+            </div>
+          </article>
+
+          <div class="book-controls">
+            <button class="ghost-button" id="prevButton" type="button">Anterior</button>
+            <div class="page-indicator" id="pageIndicator">1 / 1</div>
+            <button class="ghost-button" id="nextButton" type="button">Proxima</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="final-stage hidden" id="finalStage">
+      <div class="final-card">
+        <p class="eyebrow">Chegamos ao fim do nosso livro</p>
+        <h2 class="final-title">Mas ainda tem uma surpresa...</h2>
+        <button class="primary-button final-button" id="finalButton" type="button">APERTE</button>
+      </div>
+    </section>
+
+    <section class="cake-stage hidden" id="cakeStage">
+      <div class="cake-background">
+        <div class="balloons">
+          <div class="balloon balloon-1">🎈</div>
+          <div class="balloon balloon-2">🎈</div>
+          <div class="balloon balloon-3">🎈</div>
+          <div class="balloon balloon-4">🎈</div>
+          <div class="balloon balloon-5">🎈</div>
+          <div class="balloon balloon-6">🎈</div>
+        </div>
+        <div class="confetti">
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+          <div class="confetti-piece"></div>
+        </div>
+      </div>
+      
+      <div class="cake-container">
+        <h1 class="happy_birthday">Feliz Aniversário</h1>
+        
+        <div class="cake-wrapper">
+          <div class="cake">
+            <div class="cake-top">
+              <div class="cake-icing"></div>
+              <div class="candle">
+                <div class="flame"></div>
+                <div class="flame-glow"></div>
+              </div>
+            </div>
+            <div class="cake-middle">
+              <div class="cake-icing-middle"></div>
+              <div class="sprinkles">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="cake-bottom">
+              <div class="cake-icing-bottom"></div>
+              <div class="sprinkles">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+          
+          <div class="age-display">
+            <span class="age-number">22</span>
+            <span class="age-label">anos</span>
+          </div>
+        </div>
+        
+        <p class="cake-message">Feliz Aniversário, meu amor!</p>
+        
+        <div class="gift-icon">🎁</div>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgAudio" loop preload="none"></audio>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
